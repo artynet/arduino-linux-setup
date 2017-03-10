@@ -213,7 +213,7 @@ else
 
     removemm
 
-	mkdir -p $PWD/rulesgen
+    mkdir -p $PWD/rulesgen
 
     acmrules $1 > $PWD/rulesgen/90-extraacl.rules
 
@@ -221,15 +221,15 @@ else
 
     avrisprules > $PWD/rulesgen/avrisp.rules
 
-	dfustm32rules > $PWD/rulesgen/40-dfuse.rules
+    dfustm32rules > $PWD/rulesgen/40-dfuse.rules
 
-	sudo mv $PWD/rulesgen/*.rules /etc/udev/rules.d/
+    sudo mv $PWD/rulesgen/*.rules /etc/udev/rules.d/
 
-	rm -rf $PWD/rulesgen
+    rm -rf $PWD/rulesgen
 
     refreshudev
 
-	echo ""
+    echo ""
     echo "*********** Please Reboot your system ************"
-	echo ""
+    echo ""
 fi

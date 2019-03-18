@@ -22,7 +22,7 @@
 #
 #   + Adding support for Slackware
 #   + Changed distribution not supported message
-#   + Changed distribution check sort order
+#   + Changed distribution check sort order (thanks to thenktor @github.com)
 #   + Small fix for ArchLinux
 #
 # Release v9 changelog :

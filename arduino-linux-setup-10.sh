@@ -2,7 +2,7 @@
 # Copyright (C) 2015 Arduino Srl
 #
 # Author : Arturo Rinaldi
-# E-mail : arturo@arduino.org
+# E-mail : arty.net2@gmail.com
 # Project URL : https://github.com/artynet/arduino-linux-setup
 #
 # This program is free software: you can redistribute it and/or modify
@@ -23,6 +23,7 @@
 #   + Adding support for Slackware
 #   + Changed distribution not supported message
 #   + Changed distribution check sort order
+#   + Small fix for ArchLinux
 #
 # Release v9 changelog :
 #
@@ -60,7 +61,7 @@
 #	+ now the script checks for SUDO permissions
 #
 
-# !/bin/bash
+#!/bin/bash
 
 # if [[ $EUID != 0 ]] ; then
 #   echo This must be run as root!
@@ -91,10 +92,11 @@ groupsfunc () {
     echo "******* Add User to dialout,tty, uucp, plugdev groups *******"
     echo ""
 
+    sudo groupadd plugdev
+    sudo groupadd dialout
     sudo usermod -a -G tty $1
     sudo usermod -a -G dialout $1
     sudo usermod -a -G uucp $1
-    sudo groupadd plugdev
     sudo usermod -a -G plugdev $1
 
 }
@@ -197,7 +199,7 @@ removemm () {
     elif [ -f /etc/arch-release ]
     then
         #Only for ArchLinux
-        sudo pacman -R modemmanager
+        sudo pacman -Rdd modemmanager
     elif [ -f /etc/slackware-version ]
     then
         #Only for Slackware

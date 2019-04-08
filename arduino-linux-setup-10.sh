@@ -92,8 +92,11 @@ groupsfunc () {
     echo "******* Add User to dialout,tty, uucp, plugdev groups *******"
     echo ""
 
-    sudo groupadd plugdev
+    sudo groupadd tty
     sudo groupadd dialout
+    sudo groupadd uucp
+    sudo groupadd plugdev
+
     sudo usermod -a -G tty $1
     sudo usermod -a -G dialout $1
     sudo usermod -a -G uucp $1

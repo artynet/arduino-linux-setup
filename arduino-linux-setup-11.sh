@@ -215,7 +215,7 @@ removemm () {
     elif [ -f /etc/lsb-release ] || [ -f /etc/debian_version ] || [ -f /etc/linuxmint/info ]
     then
         #Only for Ubuntu/Mint/Debian
-        sudo apt-get -y remove modemmanager
+        sudo apt-get -y purge modemmanager
     else
         echo ""
         echo "Your system is not supported, please remove the ModemManager package with your package manager!"

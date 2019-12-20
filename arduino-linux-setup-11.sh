@@ -202,8 +202,8 @@ removemm () {
     elif [ -f /etc/fedora-release ] || [ -f /etc/redhat-release ]
     then
         #Only for Red Hat/Fedora/CentOS
-	sudo rpm -e --nodeps ModemManager
-	sudo rpm -e --nodeps ModemManager-glib
+        sudo rpm -e --nodeps ModemManager
+        sudo rpm -e --nodeps ModemManager-glib
     elif [ -f /etc/arch-release ]
     then
         #Only for ArchLinux

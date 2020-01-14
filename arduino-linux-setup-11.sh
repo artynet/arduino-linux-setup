@@ -21,6 +21,7 @@
 # Release v11 changelog :
 #
 #   + Fixing ModemManager removal for Fedora Core
+#   + Adding Atmel ICE CMSIS-DAP rule
 #
 # Release v10 changelog :
 #
@@ -124,7 +125,7 @@ EOF
 openocdrules () {
 
     echo ""
-    echo "# Adding Arduino M0/M0 Pro, Primo UDEV Rules for CMSIS-DAP port"
+    echo "# Adding Arduino M0/M0 Pro, Primo, Atmel ICE UDEV Rules for CMSIS-DAP port"
     echo ""
 
 cat <<EOF
@@ -132,6 +133,9 @@ ACTION!="add|change", GOTO="openocd_rules_end"
 SUBSYSTEM!="usb|tty|hidraw", GOTO="openocd_rules_end"
 
 #Please keep this list sorted by VID:PID
+
+#Atmel ICE
+ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2141", MODE="664", GROUP="plugdev"
 
 #CMSIS-DAP compatible adapters
 ATTRS{product}=="*CMSIS-DAP*", MODE="664", GROUP="plugdev"

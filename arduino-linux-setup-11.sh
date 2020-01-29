@@ -134,8 +134,8 @@ SUBSYSTEM!="usb|tty|hidraw", GOTO="openocd_rules_end"
 
 #Please keep this list sorted by VID:PID
 
-#Atmel ICE
-ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2141", MODE="664", GROUP="plugdev"
+#Atmel ICE Debugger
+ATTRS{idVendor}=="03eb", ATTRS{idProduct}=="2141", MODE="664", GROUP="plugdev", TAG+="uaccess"
 
 #CMSIS-DAP compatible adapters
 ATTRS{product}=="*CMSIS-DAP*", MODE="664", GROUP="plugdev"

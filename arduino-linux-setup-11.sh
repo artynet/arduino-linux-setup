@@ -1,3 +1,4 @@
+#!/bin/bash
 # arduino-linux-setup.sh : A simple Arduino setup script for Linux systems
 # Copyright (C) 2015 Arduino Srl
 #
@@ -21,7 +22,7 @@
 # Release v11 changelog :
 #
 #   + Fixing ModemManager removal for Fedora Core
-#   + Adding Atmel ICE CMSIS-DAP rule
+#   + Adding Atmel ICE Debugger CMSIS-DAP rule
 #
 # Release v10 changelog :
 #
@@ -81,7 +82,7 @@ refreshudev () {
 
     sudo udevadm control --reload-rules
     sudo udevadm trigger
-    
+
     if [ -d /lib/systemd/ ]
     then
         sudo systemctl restart systemd-udevd
@@ -125,7 +126,7 @@ EOF
 openocdrules () {
 
     echo ""
-    echo "# Adding Arduino M0/M0 Pro, Primo, Atmel ICE UDEV Rules for CMSIS-DAP port"
+    echo "# Adding Arduino M0/M0 Pro, Primo, Atmel ICE Debugger UDEV Rules for CMSIS-DAP port"
     echo ""
 
 cat <<EOF

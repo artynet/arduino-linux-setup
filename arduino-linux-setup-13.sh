@@ -19,6 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
+# Release v13 changelog :
+#
+#   + Disabling serial port HW flow
+#
 # Release v12 changelog :
 #
 #   + Improving rules for DFU mode
@@ -211,7 +215,7 @@ usbgenericrules (){
     echo "# Arduino Generic USB rules"
     echo ""
 
-cat <<EOF  
+cat <<EOF
 SUBSYSTEM=="usb", MODE="0660", GROUP="$(id -gn)"
 EOF
 
@@ -225,7 +229,7 @@ hardwareflowdisable (){
     echo "# https://access.redhat.com/solutions/209663"
     echo ""
 
-cat <<EOF    
+cat <<EOF
 #
 # port		This file defines the possible dialout ports you have
 #		on your system. Normally you have only one, and it's
@@ -317,13 +321,13 @@ else
     dfustm32rules > /tmp/40-dfuse.rules
 
     dfuarduino101rules > /tmp/99-arduino-101.rules
-    
+
     usbgenericrules > /tmp/00-usb-permissions.rules
-    
+
     hardwareflowdisable > /tmp/uucp-port
 
     sudo mv /tmp/*.rules /etc/udev/rules.d/
-     
+
     sudo mv /tmp/uucp-port /etc/uucp/port
 
     refreshudev

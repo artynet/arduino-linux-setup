@@ -278,15 +278,10 @@ removemm () {
     echo "******* Removing modem manager *******"
     echo ""
 
-    if [ -f /etc/os-release ]
+    if [ -f /etc/os-release ] && [[ $(sed -En 's/^NAME="(.*)"/\1/gp' /etc/os-release) =~ openSUSE ]]
     then
         #Only for openSUSE
-        NAME=$(sed -En 's/^NAME="(.*)"/\1/gp' /etc/os-release)
-        if [[ $NAME =~ openSUSE ]]
-        then
-            sudo zypper remove -y ModemManager
-        fi
-
+        sudo zypper remove -y ModemManager
     elif [ -f /etc/fedora-release ] || [ -f /etc/redhat-release ]
     then
         #Only for Red Hat/Fedora/CentOS
@@ -318,15 +313,10 @@ adduucp () {
     echo "******* UUCP *******"
     echo ""
 
-    if [ -f /etc/os-release ]
+    if [ -f /etc/os-release ] && [[ $(sed -En 's/^NAME="(.*)"/\1/gp' /etc/os-release) =~ openSUSE ]]
     then
         #Only for openSUSE
-        NAME=$(sed -En 's/^NAME="(.*)"/\1/gp' /etc/os-release)
-        if [[ $NAME =~ openSUSE ]]
-        then
-            sudo zypper update -y && sudo zypper in -y -n uucp  
-        fi
-
+        sudo zypper update -y && sudo zypper in -y -n uucp
     elif [ -f /etc/fedora-release ] || [ -f /etc/redhat-release ]
     then
         #Only for Red Hat/Fedora/CentOS

@@ -1,3 +1,4 @@
+#!/bin/bash
 # arduino-linux-setup.sh : A simple Arduino setup script for Linux systems
 # Copyright (C) 2015 Arduino Srl
 #
@@ -29,8 +30,6 @@
 #
 #	+ now the script checks for SUDO permissions
 #
-
-#! /bin/bash
 
 # if [[ $EUID != 0 ]] ; then
 #   echo This must be run as root!
@@ -187,7 +186,7 @@ then
     echo "Run the script with command ./arduino-linux-setup.sh \$USER"
     echo ""
 else
-	
+
 	[ `whoami` != $1 ] && echo "" && echo "The user name is not the right one, please double-check it !" && echo "" && exit 1
 
 	SUDOASKED=n
@@ -209,7 +208,7 @@ else
 	sudo mv $PWD/rulesgen/*.rules /etc/udev/rules.d/
 
 	rm -rf $PWD/rulesgen
-	
+
     refreshudev
 
 	echo ""

@@ -1,3 +1,4 @@
+#!/bin/bash
 # arduino-linux-setup.sh : A simple Arduino setup script for Linux systems
 # Copyright (C) 2015 Arduino Srl
 #

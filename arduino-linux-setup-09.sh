@@ -1,3 +1,4 @@
+#!/bin/bash
 # arduino-linux-setup.sh : A simple Arduino setup script for Linux systems
 # Copyright (C) 2015 Arduino Srl
 #
@@ -69,7 +70,7 @@ refreshudev () {
 
     sudo udevadm control --reload-rules
     sudo udevadm trigger
-    
+
     if [ -d /lib/systemd/ ]
     then
         sudo systemctl restart systemd-udevd

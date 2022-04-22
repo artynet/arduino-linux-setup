@@ -67,8 +67,6 @@
 #	+ now the script checks for SUDO permissions
 #
 
-#!/bin/bash
-
 # if [[ $EUID != 0 ]] ; then
 #   echo This must be run as root!
 #   exit 1
